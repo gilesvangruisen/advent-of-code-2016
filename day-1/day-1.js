@@ -80,7 +80,7 @@ function distanceFromOrigin(position) {
   return Math.abs(position.x) + Math.abs(position.y)
 }
 
-const instructionsText = fs.readFileSync('input.txt', 'utf8')
+const instructionsText = fs.readFileSync(__dirname + 'input.txt', 'utf8')
 const instructions = instructionsText.split(', ')
   .map((instruction) => {
     return {

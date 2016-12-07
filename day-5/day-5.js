@@ -1,6 +1,12 @@
 'use strict'
 
-const md5 = require('./md5')
+const fs = require('fs')
+
+function md5(value) {
+  var md5sum = require('crypto').createHash('md5')
+  md5sum.update(value)
+  return md5sum.digest('hex')
+}
 
 function decodePart1(input) {
   var i = 0
@@ -63,6 +69,6 @@ function isNextCharacter(hash, pos, code) {
       && !code[pos]
 }
 
-const input = 'cxdnnyjw'
+const input = fs.readFileSync('input.txt', 'utf8')
 const password = decodePart2(input)
 console.log(`The door password is: `,password)
